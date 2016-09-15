@@ -178,7 +178,7 @@ public class UIImageViewAligned: UIImageView {
         realImageView?.contentMode = contentMode
         addSubview(realImageView!)
         
-        if super.image != nil {
+        if super.image {
             swap(&image, &super.image)
         }
     }
@@ -219,9 +219,7 @@ public class UIImageViewAligned: UIImageView {
     private func realContentSize() -> CGSize {
         var size = bounds.size
         
-        if image == nil {
-            return size
-        }
+        guard image else { return size }
         
         var scaleX = size.width / (realImageView?.image?.size.width)!
         var scaleY = size.height / (realImageView?.image?.size.height)!
@@ -262,14 +260,14 @@ public class UIImageViewAligned: UIImageView {
     
     private func setInspectableProperty(newValue: Bool, alignment: UIImageViewAlignmentMask) {
         if newValue {
-            self.alignment.insert(alignment)
+            alignment.insert(alignment)
         } else {
-            self.alignment.remove(alignment)
+            alignment.remove(alignment)
         }
     }
     
     private func getInspectableProperty(alignment: UIImageViewAlignmentMask) -> Bool {
-        return self.alignment.contains(alignment)
+        return alignment.contains(alignment)
     }
     
     // MARK: - UIImageView overloads
