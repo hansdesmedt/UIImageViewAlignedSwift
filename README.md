@@ -27,7 +27,7 @@ $ gem install cocoapods
 To integrate UIImageViewAlignedSwift into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
 ```ruby
-pod 'UIImageViewAlignedSwift', :git => 'https://github.com/sochalewski/UIImageViewAlignedSwift', :branch => 'swift-2.x'
+pod 'UIImageViewAlignedSwift', '~> 0.1.0'
 ```
 
 Then, run the following command:
